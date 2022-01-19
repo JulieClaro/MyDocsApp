@@ -1,21 +1,17 @@
-/** ../global.css
+/** ./global.css
  * 
- * Estas são as folhas de estilo de uso geral do aplicativo. Essas flhas de 
- * estilo interferem em todo o site.
- *
- * Além dessas, cada página/rota também tem suas próprias folhas de estilo.
+ * Esta é a folha de estilos principal do aplicativo. 
  * 
- * By Luferat → http://github.com/Luferat 
- * MIT Lisence → https://opensource.org/licenses/MIT
+ * By Luferat -   - http://github.com/Luferat 
+ * MIT License - https://opensource.org/licenses/MIT
  */
 
-/** Variáveis
+/* Variáveis
  * Define algumas configurações iniciais para o app.
- * Você pode/deve adicionar outras variáveis aqui quando necessário.
  */
 
- :root {
-    --font-family: sans-serif;
+:root {
+    --font-family: helvetica;
     --font-size: 16px;
     --bg-color: rgb(0, 14, 36);
     --bg-image: url("../assets/img/background_01.jpg");
@@ -23,15 +19,17 @@
     --min-width: 280px;
 }
 
-/** Reset do CSS
+/* Reset do CSS
  * Faz com que a página apareça sempre igual em qualquer navegador moderno.
  */
 
 * {
-    /* Margin e padding não interferem em width e height. */
+    /* Margin e padding não interferem em width e height */
     box-sizing: border-box;
-    /* Remover bordas de elementos selecionados. */
+    /* Remover bordas de elementos selecionados */
     outline: none;
+    /* Aplica atraso em efeitos de transição */
+    /* transition: .1s; */
 }
 
 html, body, header, footer, nav, main, article, aside, p, h1, h2, h3, h4, h5, h6, blockquote {
@@ -40,25 +38,17 @@ html, body, header, footer, nav, main, article, aside, p, h1, h2, h3, h4, h5, h6
 }
 
 body, html {
-    /* Força posicionamento relativo, permitindo aplicar height em blocos. */
+    /* Força posicionamento relativo. Permite aplicar height em blocos. */
     position: relative;
-    /* Remove margem e enchimento. */
+    /* Remove margem e enchimento */
     padding: 0;
     margin: 0;
-    /* Ocupar tela inteira. */
+    /* Ocupar tela inteira */
     width: 100%;
     height: 100%;
-    /* Define fonte padrão e medida da unidade 'rem'. */
+    /* Define fonte padrão e medida da unidade 'rem' (font-size) */
     font-family: var(--font-family);
     font-size: var(--font-size);
-}
-
-h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-}
-
-p {
-    margin: 1rem 0;
 }
 
 blockquote {
@@ -75,8 +65,7 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Fundo da página. */
-
+/* Fundo da página */
 body {
     background-color: var(--bg-color);
     background-image: var(--bg-image);
@@ -86,7 +75,7 @@ body {
     background-size: cover;
 }
 
-/** Quadro principal <div.wrap>.
+/* Quadro principal <div.wrap>
  * Controla a exibição de todos os blocos do app, principalmente "sticky footer".
  */
 
@@ -106,7 +95,7 @@ main {
     flex-grow: 1;
 }
 
-/* Cabeçalho <header>. */
+/* Cabeçalho <header> */
 
 .wrap>header {
     background: rgba(0, 0, 0, .8);
@@ -125,47 +114,48 @@ div.header img {
 }
 
 div.header h1 {
-    /* Aplica borda ao texto. */
     -webkit-text-stroke: 1px white;
     color: var(--bg-color);
+    padding: 0;
     font-size: 1.5rem;
     color: darkgreen;
+    margin: 0;
 }
 
 #menuToggle {
-    /* Conserta bug da rolagem vertical durante a animação. */
     margin: auto .5rem auto auto;
+    /* Conserta bug da rolagem vertical durante a animação. */
     font-size: 1.5rem;
     color: white;
     transition: .2s;
     text-decoration: none;
 }
 
-/** Responsividade do cabeçalho.
+/* Responsividade do cabeçalho
  * Para resoluções de 576px ou mais...
  */
 
 @media (min-width: 576px) {
 
-    /* Aumenta tamanho da fonte do título. */
+    /* Aumenta tamanho da fonte do título em telas maiores */
     div.header h1 {
         font-size: 2rem;
     }
 }
 
-/** Responsividade do cabeçalho.
+/* Responsividade do cabeçalho
  * Para resoluções de 768px ou mais...
  */
 
 @media (min-width: 768px) {
 
-    /* Oculta botão do menu. */
+    /* Oculta botão do menu em telas maiores */
     #menuToggle {
         display: none;
     }
 }
 
-/* Menu principal <nav>. */
+/* Menu principal <nav> */
 
 div.nav {
     background: #044768;
@@ -177,10 +167,10 @@ div.nav {
     min-width: 0;
     box-shadow: -4px 6px 5px 0px #000;
     border-bottom-left-radius: .35rem;
-    /* Tempo da animação. */
     transition: .1s;
-    /* Ponto de partida da animação. */
+    /* Tempo da animação */
     transform-origin: right top;
+    /* Ponto de partida da animação */
 }
 
 div.nav a {
@@ -205,19 +195,18 @@ div.nav a i {
     margin-right: .65rem;
 }
 
-/* Exibe o menu principal. */
+/* Animação que exibe o menu principal */
 .menu-opened {
     transform: scale(1);
 }
 
-/* Oculta o menu princial. */
+/* Animação que oculta o menu princial */
 .menu-closed {
     transform: scale(0);
 }
 
-/** Responsividade do menu principal.
-* Para resoluções de 768px ou mais...
-*/
+/* Modifica o menu em resoluções maiores */
+
 @media (min-width: 768px) {
 
     .wrap>nav {
@@ -235,8 +224,8 @@ div.nav a i {
         box-shadow: none;
         border-radius: 0;
         justify-content: flex-end;
-        /* Exibe o menu principal */
         transform: scale(1);
+        /* Exibe o menu principal */
     }
 
     div.nav a:first-child {
@@ -252,15 +241,16 @@ div.nav a i {
     }
 }
 
-/* Bloco de conteúdo <main>. */
+/* Bloco de conteúdo <main> */
 
 div.main {
     position: relative;
     height: 100%;
     background: white;
+
 }
 
-/* Rodapé <footer>. */
+/* Rodapé <footer> */
 
 .wrap>footer {
     background: rgba(0, 0, 0, .7);
@@ -320,58 +310,54 @@ div.footer-bottom a i {
     margin-right: .25rem;
 }
 
-/** Formato geral do conteúdo.
- * Isso pode ser sobrescrito no CSS de cada página.
- */
+/* Formata conteúdo das páginas */
 
-div.main>article {
-    padding: 1rem;
+.main {
+    display: flex;
+    flex-direction: column;
 }
 
-div.main>aside {
+.main>article {
+    padding: 0 1rem;
+    flex-grow: 1;
+}
+
+.main>aside {
+    padding: 0 1rem;
     border-top: 3px dotted grey;
+    background: rgb(226, 252, 255);
+}
+
+.main>article>h2:first-child {
+    margin-top: 0;
     padding: 1rem;
-    background: rgba(0, 0, 0, .1);
+    background: #94ecfc;
+    border-radius: 0 0 .4rem .4rem;
 }
-
-div.main>article h1:first-child {
-    margin: 0;
-    padding: 1rem 0;
-}
-
-/** Responsividade do conteúdo geral.
- * Para resoluções de 768px ou mais...
- * Isso pode ser sobrescrito no CSS de cada página.
- */
 
 @media (min-width: 768px) {
-    div.main {
-        display: flex;
+    .main {
+        flex-direction: row;
     }
 
-    div.main>article {
-        flex-grow: 1;
-    }
-
-    div.main>aside {
-        flex: 0 1 250px;
+    .main>aside {
+        min-width: 220px;
+        max-width: 220px;
         border: none;
         border-left: 3px dotted grey;
     }
 }
 
-/** Estilos de uso geral
- * Classes de uso geral que podem ser usadas em qualquer lugar.
- */
+/* Classes de uso geral. */
 
-.text-center {
+.red {
+    color: red;
+}
+
+.center {
     text-align: center;
 }
 
 .small {
-    font-size: small;
-}
-
-.red {
-    color: red;
+    font-size: .85rem;
 }
