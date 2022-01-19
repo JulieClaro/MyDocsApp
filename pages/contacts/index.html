@@ -1,36 +1,39 @@
 <article>
 
-    <h2>Faça contato</h2>
+    <form method="GET" name="contact" id="contact">
 
-    <form action="#" id="contact" name="contact" method="post">
+        <h2>Faça Contato</h2>
 
-        <p>Preencha os campos abaixo para entrar em contato com a equipe do aplicativo.</p>
+        <p>Preencha os campos abaixo para entrar em contato com a equipe do site.</p>
 
-        <p class="red center small">Todos os campos são obrigatórios.</p>
+        <p class="text-center small red">* Todos os campos são obrigatórios.</p>
+
+        <input type="hidden" name="contact-send" id="contact-send" value="Ok">
 
         <p>
-            <label for="contactName">Seu nome:</label>
-            <input type="text" name="contact-name" id="contactName" required minlength="3" class="field valid" value="Joca da Silva">
+            <label for="name">Nome:</label>
+            <input type="text" name="contact-name" id="contact-name" required minlength="3" class="field valid" value="">
         </p>
 
         <p>
-            <label for="contactEmail">Seu e-mail:</label>
-            <input type="email" name="contact-email" id="contactEmail" required class="field valid" value="joca@silva.com">
+            <label for="email">E-mail:</label>
+            <input type="email" name="contact-email" id="contact-email" required class="field valid" value="">
         </p>
 
         <p>
-            <label for="contactSubject">Assunto:</label>
-            <input type="text" name="contact-subject" id="contactSubject" required minlength="3" class="field valid" value="Teste do Joca">
+            <label for="subject">Assunto:</label>
+            <input type="text" name="contact-subject" id="contact-subject" required minlength="3" class="field valid" value="">
         </p>
 
         <p>
-            <label for="contactMessage">Mensagem:</label>
-            <textarea name="contact-message" id="contactMessage" required minlength="5" class="field valid">Mesagem do Joca</textarea>
+            <label for="message">Menssagem:</label>
+            <textarea name="contact-message" id="contact-message" required minlength="5" class="field valid" data-spaces="true"></textarea>
         </p>
 
         <p>
-            <button type="submit" name="contact-send" id="contactSend">Enviar</button>
-            <span class="small">&larr; Clique somente uma vez.</span>
+            <label for="submit"></label>
+            <button type="submit" name="contact-submit" id="contact-submit">Enviar</button>
+            <small class="grey">Suporta somente texto.</small>
         </p>
 
     </form>
@@ -43,10 +46,10 @@
     <h3>Mais contatos</h3>
     <p>Conheça nossas redes sociais e outras formas de contato.</p>
     <div class="contact-list">
-        <a href="https://wa.me/5521987654321" target="_blank" title="Nosso WhatsApp.">
-            <i class="fab fa-whatsapp-square fa-fw"></i><span>Whatsapp</span>
+        <a href="https://wa.me/5521987654321" target="_blank" title="Meu WhatsApp">
+            <i class="fab fa-whatsapp-square fa-fw"></i><span>WhatsApp</span>
         </a>
-        <a href="maito://contato@mydocsapp.com" target="_blank" title="Nosso e-mail.">
+        <a href="mailto://contato@mydocsapp.com" target="_blank" title="Meu e-mail">
             <i class="fas fa-envelope-square fa-fw"></i><span>E-mail</span>
         </a>
         <a href="https://github.com/Luferat" target="_blank" title="Meu GitHub">
@@ -63,3 +66,5 @@
         </a>
     </div>
 </aside>
+
+<script>$(document).ready(runContacts);</script>
